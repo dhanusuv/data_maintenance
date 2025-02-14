@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import configparser
+import psycopg2
 
 import toml
 from sqlalchemy import create_engine, text
