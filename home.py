@@ -10,13 +10,13 @@ secrets = toml.load(".streamlit/secrets.toml")
 db_config = secrets["database"]
 
 # Get database credentials
-DB_HOST = db_config("host")
-DB_NAME = db_config("name")
-DB_USER = db_config("user")
-DB_PASSWORD = db_config("password")
-DB_PORT = db_config("port")
-SCHEMA_NAME = db_config("schema")
-TABLE_NAME = db_config("table")
+DB_HOST = db_config["host"]
+DB_NAME = db_config["name"]
+DB_USER = db_config["user"]
+DB_PASSWORD = db_config["password"]
+DB_PORT = db_config["port"]
+SCHEMA_NAME = db_config["schema"]
+TABLE_NAME = db_config["table"]
 
 # Create SQLAlchemy engine
 DATABASE_URL = f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
