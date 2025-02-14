@@ -4,17 +4,19 @@ import configparser
 from sqlalchemy import create_engine, text
 from merge_process import run_merge_process  # Import merge function
 
-# Load configuration
-config = configparser.ConfigParser()
-config.read("config.ini")
+import toml
+
+secrets = toml.load(".streamlit/secrets.toml")
+db_config = secrets["database"]
 
 # Get database credentials
-DB_HOST = config.get("database", "host")
-DB_NAME = config.get("database", "name")
-DB_USER = config.get("database", "user")
-DB_PASSWORD = config.get("database", "password")
-DB_PORT = config.get("database", "port")
-SCHEMA_NAME = config.get("database", "schema")
+DB_HOST = db_config("host")
+DB_NAME = db_config("name")
+DB_USER = db_config("user")
+DB_PASSWORD = db_config("password")
+DB_PORT = db_config("port")
+SCHEMA_NAME = db_config("schema")
+TABLE_NAME = db_config("table")
 
 # Create SQLAlchemy engine
 DATABASE_URL = f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
