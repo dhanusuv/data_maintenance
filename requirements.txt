@@ -1,0 +1,13 @@
+pip~=23.2.1
+pathlib~=1.0.1
+configparser~=7.1.0
+attrs~=24.2.0
+wheel~=0.41.2
+cryptography~=43.0.3
+pillow~=11.0.0
+filelock~=3.16.1
+streamlit~=1.41.1
+pandas~=2.1.4
+SQLAlchemy~=2.0.31
+matplotlib
+matplotlib_venn
